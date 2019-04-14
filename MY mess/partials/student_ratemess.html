@@ -1,0 +1,49 @@
+<div class="container-fluid" style="padding-left: 30px">
+    <div class="row" style="margin-top: 25px">
+        <div class="col-sm-12">
+            <h3>Mess Ratings</h3>
+
+            <div class="row">
+                <div class="col-sm-6">
+                     <p ng-show="messes.length==0" style="padding-left: 20px;color: #ff6666">Nobody has rated any  mess yet.</p>
+                     <md-content class="md-whiteframe-3dp">
+                        <ul class="entrylist" ng-show="messes.length!=0">
+                            <li ng-repeat="item in messes">
+                                {{item.MessName}} <span class="mid" style="font-size: 2rem">{{item.rating|number:2}}/5</span>
+                            </li>
+                        </ul>
+                    </md-content>
+                    
+                </div>
+                <div class="col-sm-6">
+                    
+                    <md-content ng-show="joined" class="md-whiteframe-3dp" style="padding: 10px">
+                        
+                            <h4>Rate Your current Mess</h4>
+                            <mess-rating rating="{{rating}}" on-rate="rate(rating)"></mess-rating>
+                                
+                        
+                    </md-content>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+<!--div class="container-fluid" style="padding-left: 30px">
+    <div class="row" style="margin-top: 25px">
+        <div class="col-sm-12">
+            <div class="row">
+                <div class="col-sm-12">
+                    
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+</div-->
+
+

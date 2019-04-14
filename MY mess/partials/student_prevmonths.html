@@ -1,0 +1,58 @@
+<div class="container-fluid" style="padding-left: 30px">
+    <div class="row" style="margin-top: 25px">
+        <div class="col-sm-12">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h3>Previous Bills</h3>
+                    <p ng-show="months.length==0" style="padding-left: 20px;color: #ff6666">No previous bills are generated.</p>
+
+                    <md-input-container ng-hide="months.length==0" style="width:200px">
+                                        <label>Select Month</label>
+                                        <md-select ng-model="selectedMonth" ng-change="onChange()">
+                                            <md-option ng-repeat="month in months" ng-value="{{month}}">
+                                                {{month.month}}
+                                            </md-option>
+                                        </md-select>
+                                    </md-input-container>
+                    <md-content ng-hide="selectedMonth==null" class="md-whiteframe-3dp" style="padding-bottom: 30px;">
+                        <h4 style="text-align: center"></h4>
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div ng-show="show">
+                                        <h5>Join Date: {{details.StartDate|date:"yyyy MMM d"}}</h5>
+                                        <h5>Extras Total : {{details.ExtrasTotal|currency:"&#8377"}}</h5>
+                                        <h5>No of Leaves : {{details.CutDays}}</h5>
+                                        <h3>Total : {{(details.PerDayRate*(totaldays-details.CutDays))+1*details.ExtrasTotal|currency:"&#8377"}}</h3>
+
+                                    </div>
+
+                                </div>
+                                <div class="col-sm-6" ng-show="show">
+                                    <h4>Extras Details</h4>
+                                    <p ng-show="details.extras.length==0" style="padding-left: 20px;color: #ff6666">You've not taken any extras this month.</p>
+                                    <md-content class="md-whiteframe-3dp" ng-show="details.extras.length!=0">
+                                        <div class="listhead">
+                                            <span class="lh onethree">Extra</span>
+                                            <span class="lh onethree">Amount</span>
+                                            <span class="lh onethree">Time</span>
+                                        </div>
+                                        <ul class="entrylist billlist" style="max-height: 250px">
+                                            <li ng-repeat="item in details.extras">
+                                                <span class="roll onethree">{{item.name}}</span>
+                                                <span class="name onethree">{{item.amount|currency:"&#8377"}}</span>
+                                                <span class="cost onethree">{{item.time|date:"h:mm a, MMM d"}}</span>
+                                            </li>
+                                        </ul>
+                                    </md-content>
+                                </div>
+                            </div>
+                        </div>
+                    </md-content>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>

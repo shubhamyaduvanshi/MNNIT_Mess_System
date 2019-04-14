@@ -1,0 +1,35 @@
+<div class="container-fluid" style="padding-left: 30px">
+    <div class="row" style="margin-top: 25px">
+        <div class="col-sm-12">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h3>Current Month Extras Food Details.</h3>
+
+                    <p ng-show="!joined" style="padding-left: 20px;color: #ff6666">You've not joined a mess this month.</p>
+
+
+                    <p ng-show="joined&&list.length==0" style="padding-left: 20px;color: #ff6666">You've not taken any extras this month.</p>
+
+                    <md-content class="md-whiteframe-3dp" ng-hide="!joined||list.length==0">
+                         <div class="listhead">
+                                <span class="lh onethree">Extra</span>
+                                <span class="lh onethree">Amount</span>
+                                <span class="lh onethree">Time</span>
+                         </div>
+                        <ul class="entrylist billlist">
+                            <li ng-repeat="item in list">
+                                <span class="roll onethree">{{item.name}}</span>
+                                <span class="name onethree">{{item.amount|currency:"&#8377"}}</span>
+                                <span class="cost onethree">{{item.time|date:"h:mm a, MMM d"}}</span>
+                            </li>
+                        </ul>
+                    </md-content>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+</div>
